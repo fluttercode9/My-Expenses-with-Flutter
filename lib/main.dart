@@ -52,6 +52,36 @@ class _MyHomePageState extends State<MyHomePage> {
     //   date: DateTime.now(),
     //   id: 't2',
     //   title: 'New Bike',
+    // ),
+    // Transaction(
+    //   amount: 69.99,
+    //   date: DateTime.now(),
+    //   id: 't3',
+    //   title: 'New Shoes',
+    // ),
+    // Transaction(
+    //   amount: 69.99,
+    //   date: DateTime.now(),
+    //   id: 't1',
+    //   title: 'New Shoes',
+    // ),
+    // Transaction(
+    //   amount: 489.99,
+    //   date: DateTime.now(),
+    //   id: 't2',
+    //   title: 'New Bike',
+    // ),
+    // Transaction(
+    //   amount: 69.99,
+    //   date: DateTime.now(),
+    //   id: 't3',
+    //   title: 'New Shoes',
+    // ),
+    // Transaction(
+    //   amount: 489.99,
+    //   date: DateTime.now(),
+    //   id: 't4',
+    //   title: 'New Bike',
     // )
   ];
   List<Transaction> get _recentTransactions {
@@ -83,6 +113,12 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
+  void _deleteTransaction(String id){
+    setState(() {
+      _userTransactions.removeWhere((element) => element.id == id);
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(_userTransactions)
+            TransactionList(_userTransactions, _deleteTransaction)
           ],
         ),
       ),
