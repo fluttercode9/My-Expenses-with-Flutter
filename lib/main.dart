@@ -41,48 +41,48 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    //   id: 't1',
-    //   title: 'New Shoes',
-    // ),
-    // Transaction(
-    //   amount: 489.99,
-    //   date: DateTime.now(),
-    //   id: 't2',
-    //   title: 'New Bike',
-    // ),
-    // Transaction(
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    //   id: 't3',
-    //   title: 'New Shoes',
-    // ),
-    // Transaction(
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    //   id: 't1',
-    //   title: 'New Shoes',
-    // ),
-    // Transaction(
-    //   amount: 489.99,
-    //   date: DateTime.now(),
-    //   id: 't2',
-    //   title: 'New Bike',
-    // ),
-    // Transaction(
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    //   id: 't3',
-    //   title: 'New Shoes',
-    // ),
-    // Transaction(
-    //   amount: 489.99,
-    //   date: DateTime.now(),
-    //   id: 't4',
-    //   title: 'New Bike',
-    // )
+    Transaction(
+      amount: 69.99,
+      date: DateTime(2021,12,18),
+      id: 't1',
+      title: 'New Shoes',
+    ),
+    Transaction(
+      amount: 489.99,
+      date: DateTime(2021,12,20),
+      id: 't2',
+      title: 'New Bike',
+    ),
+    Transaction(
+      amount: 69.99,
+      date: DateTime(2021,12,19),
+      id: 't3',
+      title: 'New Shoes',
+    ),
+    Transaction(
+      amount: 69.99,
+      date: DateTime(2021,12,17),
+      id: 't1',
+      title: 'New Shoes',
+    ),
+    Transaction(
+      amount: 489.99,
+      date: DateTime(2021,12,17),
+      id: 't2',
+      title: 'New Bike',
+    ),
+    Transaction(
+      amount: 69.99,
+      date: DateTime(2021,12,17),
+      id: 't3',
+      title: 'New Shoes',
+    ),
+    Transaction(
+      amount: 489.99,
+      date: DateTime(2021,12,18),
+      id: 't4',
+      title: 'New Bike',
+    )
   ];
   List<Transaction> get _recentTransactions {
     return _userTransactions.where((tx) {
