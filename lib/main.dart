@@ -43,43 +43,43 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
     Transaction(
       amount: 69.99,
-      date: DateTime(2021,12,18),
+      date: DateTime(2021, 12, 18),
       id: 't1',
       title: 'New Shoes',
     ),
     Transaction(
       amount: 489.99,
-      date: DateTime(2021,12,20),
+      date: DateTime(2021, 12, 20),
       id: 't2',
       title: 'New Bike',
     ),
     Transaction(
       amount: 69.99,
-      date: DateTime(2021,12,19),
+      date: DateTime(2021, 12, 19),
       id: 't3',
       title: 'New Shoes',
     ),
     Transaction(
       amount: 69.99,
-      date: DateTime(2021,12,17),
+      date: DateTime(2021, 12, 17),
       id: 't1',
       title: 'New Shoes',
     ),
     Transaction(
       amount: 489.99,
-      date: DateTime(2021,12,17),
+      date: DateTime(2021, 12, 17),
       id: 't2',
       title: 'New Bike',
     ),
     Transaction(
       amount: 69.99,
-      date: DateTime(2021,12,17),
+      date: DateTime(2021, 12, 17),
       id: 't3',
       title: 'New Shoes',
     ),
     Transaction(
       amount: 489.99,
-      date: DateTime(2021,12,18),
+      date: DateTime(2021, 12, 18),
       id: 't4',
       title: 'New Bike',
     )
@@ -94,7 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount, DateTime chosenDate) {
+  void _addNewTransaction(
+      String txTitle, double txAmount, DateTime chosenDate) {
     setState(() {
       _userTransactions.add(Transaction(
         amount: txAmount,
@@ -113,31 +114,37 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
-  void _deleteTransaction(String id){
+
+  void _deleteTransaction(String id) {
     setState(() {
       _userTransactions.removeWhere((element) => element.id == id);
     });
-
   }
 
   @override
   Widget build(BuildContext context) {
+    final appBar = AppBar(
+      actions: <Widget>[
+        IconButton(
+          onPressed: () => _startAddNewTransaction(context),
+          icon: Icon(Icons.add),
+        )
+      ],
+      title: Text('My Expenses'),
+    );
     return Scaffold(
-      appBar: AppBar(
-        actions: <Widget>[
-          IconButton(
-            onPressed: () => _startAddNewTransaction(context),
-            icon: Icon(Icons.add),
-          )
-        ],
-        title: Text('My Expenses'),
-      ),
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Chart(_recentTransactions),
-            TransactionList(_userTransactions, _deleteTransaction)
+            Container(
+              height: (MediaQuery.of(context).size.height - appBar.preferredSize.height - MediaQuery.of(context).padding.top) * 0.25,
+              child: Chart(_recentTransactions),
+            ),
+            Container(
+              height: (MediaQuery.of(context).size.height - appBar.preferredSize.height - MediaQuery.of(context).padding.top) * 0.75,
+                child: TransactionList(_userTransactions, _deleteTransaction))
           ],
         ),
       ),
