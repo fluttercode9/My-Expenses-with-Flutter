@@ -1,5 +1,5 @@
 # My Expenses
-
+App made with flutter to help tracking you expenses.
 
 
 
